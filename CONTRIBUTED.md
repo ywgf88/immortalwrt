@@ -1,7 +1,8 @@
 # CONTRIBUTED
 
-## Sponsors
-[![Dler Cloud](https://user-images.githubusercontent.com/22235437/111103249-f9ec6e00-8588-11eb-9bfc-67cc55574555.png)](https://dlercloud.com)
+## Thanks to
+[![Dler Cloud](https://user-images.githubusercontent.com/22235437/111103249-f9ec6e00-8588-11eb-9bfc-67cc55574555.png)](https://dlercloud.com)<br/>
+<a href="https://osdn.net/"><img src="https://osdn.net/sflogo.php?group_id=13647&type=2" width="125" height="39" border="0" alt="OSDN"></a>
 
 ## The Source of Packages
 ### Based on: [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede).<br/>
@@ -58,15 +59,8 @@ luci-theme-argon-mod source: [Leo-Jo-My/luci-theme-argon-mod](https://github.com
 node-request source: [jerrykuku/node-request](https://github.com/jerrykuku/node-request).<br/>
 luci-app-jd-dailybonus source: [jerrykuku/luci-app-jd-dailybonus](https://github.com/jerrykuku/luci-app-jd-dailybonus).<br/>
 luci-app-oled source: [NateLol/luci-app-oled](https://github.com/NateLol/luci-app-oled).<br/>
-luci-theme-edge source: [garypang13/luci-theme-edge](https://github.com//garypang13/luci-theme-edge).<br/>
 luci-app-beardropper source: [NateLol/natelol](https://github.com/NateLol/natelol).<br/>
 luci-app-vssr source: [jerrykuku/luci-app-vssr](https://github.com/jerrykuku/luci-app-vssr).<br/>
 luci-proto-modemmanager source: [nickberry17/luci-proto-modemmanager](https://github.com/nickberry17/luci-proto-modemmanager).<br/>
 luci-theme-infinityfreedom source: [xiaoqingfengATGH/luci-theme-infinityfreedom](https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom).<br/>
 luci-proto-minieap source: [ysc3839/luci-proto-minieap](https://github.com/ysc3839/luci-proto-minieap).
-
-## Download Mirrors
-[openwrt.cc](https://openwrt.cc/dl/immortalwrt) by [@SuLingGG](https://github.com/SuLingGG).
-
-## License
-### Depend on their own License.

@@ -10,7 +10,7 @@
  	sun50i-h5-orangepi-prime.dtb \
 --- /dev/null
 +++ b/arch/arm/dts/sun50i-h5-nanopi-r1s-h5.dts
-@@ -0,0 +1,204 @@
+@@ -0,0 +1,188 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright (C) 2021 AmadeusGhost <amadeus@jmu.edu.cn>
@@ -31,7 +31,7 @@
 +
 +	aliases {
 +		ethernet0 = &emac;
-+		i2c0 = &i2c0;
++		ethernet1 = &rtl8189etv;
 +		serial0 = &uart0;
 +	};
 +
@@ -120,19 +120,11 @@
 +	cpu-supply = <&vdd_cpux>;
 +};
 +
-+&ehci0 {
-+	status = "okay";
-+};
-+
 +&ehci1 {
 +	status = "okay";
 +};
 +
 +&ehci2 {
-+	status = "okay";
-+};
-+
-+&ehci3 {
 +	status = "okay";
 +};
 +
@@ -182,19 +174,11 @@
 +	};
 +};
 +
-+&ohci0 {
-+	status = "okay";
-+};
-+
 +&ohci1 {
 +	status = "okay";
 +};
 +
 +&ohci2 {
-+	status = "okay";
-+};
-+
-+&ohci3 {
 +	status = "okay";
 +};
 +
@@ -217,7 +201,7 @@
 +};
 --- /dev/null
 +++ b/configs/nanopi_r1s_h5_defconfig
-@@ -0,0 +1,13 @@
+@@ -0,0 +1,14 @@
 +CONFIG_ARM=y
 +CONFIG_ARCH_SUNXI=y
 +CONFIG_SPL=y
@@ -225,9 +209,10 @@
 +CONFIG_DRAM_CLK=672
 +CONFIG_DRAM_ZQ=3881977
 +# CONFIG_DRAM_ODT_EN is not set
++CONFIG_MACPWR="PD6"
 +CONFIG_MMC_SUNXI_SLOT_EXTRA=2
 +# CONFIG_SYS_MALLOC_CLEAR_ON_INIT is not set
-+CONFIG_SYS_USB_EVENT_POLL_VIA_INT_QUEUE=y
 +CONFIG_DEFAULT_DEVICE_TREE="sun50i-h5-nanopi-r1s-h5"
 +CONFIG_SUN8I_EMAC=y
 +CONFIG_USB_EHCI_HCD=y
++CONFIG_USB_OHCI_HCD=y

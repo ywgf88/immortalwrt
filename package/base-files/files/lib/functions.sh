@@ -188,10 +188,10 @@ add_group_and_user() {
 	if [ -n "$rusers" ]; then
 		local tuple oIFS="$IFS"
 		for tuple in $rusers; do
-			local uid gid uname gname
+			local uid gid uname gname addngroups addngroup addngname addngid
 
 			IFS=":"
-			set -- $tuple; uname="$1"; gname="$2"
+			set -- $tuple; uname="$1"; gname="$2"; addngroups="$3"
 			IFS="="
 			set -- $uname; uname="$1"; uid="$2"
 			set -- $gname; gname="$1"; gid="$2"
@@ -211,7 +211,24 @@ add_group_and_user() {
 				group_add_user "$gname" "$uname"
 			fi
 
-			unset uid gid uname gname
+			if [ -n "$uname" ] &&  [ -n "$addngroups" ]; then
+				oIFS="$IFS"
+				IFS=","
+				for addngroup in $addngroups ; do
+					IFS="="
+					set -- $addngroup; addngname="$1"; addngid="$2"
+					if [ -n "$addngid" ]; then
+						group_exists "$addngname" || group_add "$addngname" "$addngid"
+					else
+						group_add_next "$addngname"
+					fi
+
+					group_add_user "$addngname" "$uname"
+				done
+				IFS="$oIFS"
+			fi
+
+			unset uid gid uname gname addngroups addngroup addngname addngid
 		done
 	fi
 }
@@ -355,6 +372,16 @@ user_exists() {
 
 board_name() {
 	[ -e /tmp/sysinfo/board_name ] && cat /tmp/sysinfo/board_name || echo "generic"
+}
+
+cmdline_get_var() {
+	local var=$1
+	local cmdlinevar tmp
+
+	for cmdlinevar in $(cat /proc/cmdline); do
+		tmp=${cmdlinevar##${var}}
+		[ "=" = "${tmp:0:1}" ] && echo ${tmp:1}
+	done
 }
 
 [ -z "$IPKG_INSTROOT" -a -f /lib/config/uci.sh ] && . /lib/config/uci.sh
